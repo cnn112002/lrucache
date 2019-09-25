@@ -29,3 +29,10 @@ func TestLruCache_Set2(t *testing.T) {
 }
 
 
+func BenchmarkLruCache_Set(b *testing.B) {
+	b.ResetTimer()
+	cache:=LruCache{maxLength:100}
+	for i:=0; i<b.N;i++  {
+		cache.Set("1",b.N)
+	}
+}
